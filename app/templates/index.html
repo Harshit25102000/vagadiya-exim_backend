@@ -6,8 +6,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  {% block head %} {% endblock %}
 
-  <title>Home - Append Bootstrap Template</title>
+  <title> Home - Append Bootstrap Template {% block title %} {% endblock %}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -35,10 +36,9 @@
 
 </head>
 
-
+{% block style %} {% endblock %}
 
 <body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu" >
-
  <!-- ======= Header ======= -->
  <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: white;">
   <div class="container-fluid d-flex align-items-center justify-content-between">
@@ -53,8 +53,8 @@
     <!-- Nav Menu -->
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href=" {% static 'index.html' %} " class="nav-ul" style="font-weight: bold;">Home</a></li>
-        <li><a href=" {% static 'about.html' %} "  class="nav-ul" style="font-weight: bold;">About Us</a></li>
+        <li><a href="/ " class="nav-ul" style="font-weight: bold;">Home</a></li>
+        <li><a href="/about"  class="nav-ul" style="font-weight: bold;">About Us</a></li>
         
         <li class="dropdown"><a href="#"><span style="font-weight: bold;">Products</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
@@ -65,17 +65,18 @@
          
           </ul>
         </li>
-        <li><a href=" {% static 'contact.html' %} "  class="nav-ul" style="font-weight: bold;">Contact</a></li>
+        <li><a href="/contact"  class="nav-ul" style="font-weight: bold;">Contact</a></li>
 
       </ul>
 
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav><!-- End Nav Menu -->
 
-    <a class="btn-getstarted" href=" {% static 'contact.html' %} " style="color:white;background-color:#630C68FF;">Whatsapp</a>
+    <a class="btn-getstarted" href="/contact" style="color:white;background-color:#630C68FF;">Whatsapp</a>
 
   </div>
 </header><!-- End Header -->
+{% block content %} 
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="hero d-flex align-items-center" style="background-color: #630C681F;">
@@ -297,7 +298,7 @@
    
 
   </main>
-
+  {% endblock %}
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer" style="background-color: white;margin-top: 2%;">
 
@@ -392,7 +393,7 @@
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
-        depth: 100,
+        depth: 100, 
         modifier: 2,
         slideShadows: true,
       },
@@ -406,7 +407,6 @@
             }
     });
   </script>
-
 </body>
 
 </html>
