@@ -1,310 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "index.html" %} {% load static %} {% block content %}
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Services Details - Append Bootstrap Template</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href=" {% static 'assets/img/favicon.jpg' %} " rel="icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href=" {% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
-  <link href=" {% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %} " rel="stylesheet">
-  <link href=" {% static 'assets/vendor/glightbox/css/glightbox.min.css' %} " rel="stylesheet">
-  <link href=" {% static 'assets/vendor/swiper/swiper-bundle.min.css' %} " rel="stylesheet">
-  <link href=" {% static 'assets/vendor/aos/aos.css' %} " rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href=" {% static 'assets/css/main.css' %} " rel="stylesheet">
-
-</head>
-
-<body class="services-details-page" data-bs-spy="scroll" data-bs-target="#navmenu">
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: white;">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-  
-      <a href=" {% static 'index.html' %} " class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src=" {% static 'assets/img/RV Kitchen logo.png' %} " alt="">
-        
-      
-      </a>
-  
-      <!-- Nav Menu -->
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href=" {% static 'index.html#hero' %} " class="active" style="color:black;font-weight: bold;">Home</a></li>
-          <li><a href=" {% static 'Reservations.html' %} " style="color:black;font-weight: bold;">Reservations</a></li>
-          <li><a href=" {% static 'events.html' %} " style="color:black;font-weight: bold;">Events</a></li>
-          <li><a href=" {% static 'contact.html' %} " style="color:black;font-weight: bold;">Contact</a></li>
-  
-        </ul>
-  
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav><!-- End Nav Menu -->
-  
-      <a class="btn-getstarted" href=" {% static 'index.html#about' %} " style="color:white;background-color: black;">Make Booking</a>
-  
-    </div>
-  </header><!-- End Header -->
-
-  <main id="main">
-
-   
-
-    <!-- Service Details Section -->
-    <section id="service-details" class="service-details" style="margin-top:-2%">
-
-      <div class="container">
-
-         <!-- Page Title -->
-    <div data-aos="fade" class="page-title">
-      <div class="heading">
-        <div class="container" style="margin-top: 10px;">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1 style="color:#630C68FF">Let's Connect</h1>
-              <p class="mb-0">Welcome to Vagadiya Exim</p>
+<main id="main">
+  <!-- Service Details Section -->
+  <section id="service-details" class="service-details" style="margin-top: -2%">
+    <div class="container">
+      <!-- Page Title -->
+      <div data-aos="fade" class="page-title">
+        <div class="heading">
+          <div class="container" style="margin-top: 10px">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8">
+                <h1 style="color: #630c68ff">Let's Connect</h1>
+                <p class="mb-0">Welcome to Vagadiya Exim</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    
-    </div><!-- End Page Title -->
+      <!-- End Page Title -->
 
-        <div class="row gy-5">
-          
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-
-            
-
-            <div class="service-box">
-              <h4 style="color:#630C68FF">Download Catalog</h4>
-              <div class="download-catalog">
-                <a href="#"><i class="bi bi-filetype-pdf"></i><span style="color:#630C68FF">Catalog PDF</span></a>
-                <a href="#"><i class="bi bi-file-earmark-word"></i><span style="color:#630C68FF">Catalog DOC</span></a>
-              </div>
-            </div><!-- End Services List -->
-
-            <div class="help-box d-flex flex-column justify-content-center align-items-center" style="background-color:#630C68FF">
-              <i class="bi bi-headset help-icon"></i>
-              <h4>Have a Question?</h4>
-              <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>+1 5589 55488 55</span></p>
-              
-              <div class="social-links d-flex mt-4">
-                <a href=" {% static '' %} "><i class="bi bi-envelope-at-fill" style="margin-right: 13px;"></i></a>
-                <a href=" {% static '' %} "><i class="bi bi-facebook" style="margin-right: 13px;"></i></a>
-                <a href=" {% static '' %} "><i class="bi bi-instagram" style="margin-right: 13px;"></i></a>
-                <a href=" {% static '' %} "><i class="bi bi-whatsapp" style="margin-right: 13px;"></i></a>
-              </div>
+      <div class="row gy-5">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-box">
+            <h4 style="color: #630c68ff">Download Catalog</h4>
+            <div class="download-catalog">
+              <a href="#"
+                ><i class="bi bi-filetype-pdf"></i
+                ><span style="color: #630c68ff">Catalog PDF</span></a
+              >
+              <a href="#"
+                ><i class="bi bi-file-earmark-word"></i
+                ><span style="color: #630c68ff">Catalog DOC</span></a
+              >
             </div>
-
           </div>
+          <!-- End Services List -->
 
-          <div class="col-lg-6 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-            <!-- Contact Section - Home Page -->
-   
+          <div
+            class="help-box d-flex flex-column justify-content-center align-items-center"
+            style="background-color: #630c68ff"
+          >
+            <i class="bi bi-headset help-icon"></i>
+            <h4>Have a Question?</h4>
+            <p class="d-flex align-items-center mt-2 mb-0">
+              <i class="bi bi-telephone me-2"></i>
+              <span>+1 5589 55488 55</span>
+            </p>
 
-     
+            <div class="social-links d-flex mt-4">
+              <a href=" {% static ' {% static '' %} ' %} "
+                ><i
+                  class="bi bi-envelope-at-fill"
+                  style="margin-right: 13px"
+                ></i
+              ></a>
+              <a href=" {% static ' {% static '' %} ' %} "
+                ><i class="bi bi-facebook" style="margin-right: 13px"></i
+              ></a>
+              <a href=" {% static ' {% static '' %} ' %} "
+                ><i class="bi bi-instagram" style="margin-right: 13px"></i
+              ></a>
+              <a href=" {% static ' {% static '' %} ' %} "
+                ><i class="bi bi-whatsapp" style="margin-right: 13px"></i
+              ></a>
+            </div>
+          </div>
+        </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-6 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <!-- Contact Section - Home Page -->
 
-        
-
-          
-
-         
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200" >
+          <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <form
+              action="forms/contact.php"
+              method="post"
+              class="php-email-form"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               <div class="row gy-4">
+                <div class="col-md-6">
+                  <label
+                    style="
+                      font-weight: bold;
+                      margin-bottom: 3px;
+                      color: #630c68ff;
+                      font-size: 18px;
+                      font-weight: 700;
+                    "
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    required
+                    style="border: none; background-color: #f2f2f2"
+                  />
+                </div>
 
                 <div class="col-md-6">
-                  <label style="font-weight: bold;margin-bottom: 3px;color:#630C68FF;font-size:18px;font-weight: 700;">Name</label>
-                  <input type="text" name="name" class="form-control"  required style="border: none;background-color: #f2f2f2;">
-                </div>
-
-                <div class="col-md-6 ">
-                  <label style="font-weight: bold;margin-bottom: 3px;color:#630C68FF;font-size:18px;font-weight: 700;">Contact Number</label>
-                  <input type="email" class="form-control" name="number" required style="border: none;background-color: #f2f2f2;">
+                  <label
+                    style="
+                      font-weight: bold;
+                      margin-bottom: 3px;
+                      color: #630c68ff;
+                      font-size: 18px;
+                      font-weight: 700;
+                    "
+                    >Contact Number</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="number"
+                    required
+                    style="border: none; background-color: #f2f2f2"
+                  />
                 </div>
 
                 <div class="col-md-12">
-                  <label style="font-weight: bold;margin-bottom: 3px;color:#630C68FF;font-size:18px;font-weight: 700;">Email</label>
-                  <input type="text" class="form-control" name="email"  required style="border: none;background-color: #f2f2f2;">
+                  <label
+                    style="
+                      font-weight: bold;
+                      margin-bottom: 3px;
+                      color: #630c68ff;
+                      font-size: 18px;
+                      font-weight: 700;
+                    "
+                    >Email</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    required
+                    style="border: none; background-color: #f2f2f2"
+                  />
                 </div>
 
                 <div class="col-md-12">
-                  <label style="font-weight: bold;margin-bottom: 3px;color:#630C68FF;font-size:18px;font-weight: 700;">Message</label>
-                  <textarea class="form-control" name="message" rows="6"  required style="border: none;background-color: #f2f2f2;"></textarea>
+                  <label
+                    style="
+                      font-weight: bold;
+                      margin-bottom: 3px;
+                      color: #630c68ff;
+                      font-size: 18px;
+                      font-weight: 700;
+                    "
+                    >Message</label
+                  >
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="6"
+                    required
+                    style="border: none; background-color: #f2f2f2"
+                  ></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
-                 
-
-                  <button type="submit" style="height: 50px;
-                  width: 135px;
-                  background-color:#630C68FF;
-                  color: white;
-                  border-radius: 17px;
-                  font-weight: bold;">Contact Us</button>
+                  <button
+                    type="submit"
+                    style="
+                      height: 50px;
+                      width: 135px;
+                      background-color: #630c68ff;
+                      color: white;
+                      border-radius: 17px;
+                      font-weight: bold;
+                    "
+                  >
+                    Contact Us
+                  </button>
                 </div>
-
               </div>
             </form>
-         
-
-    
-
-      </div>
-
-   
           </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- End Service-details Section -->
-
-  </main>
-
- <!-- ======= Footer ======= -->
- <footer id="footer" class="footer" style="background-color: white;margin-top: 2%;">
-
-  <div class="container footer-top">
-    <div class="row gy-4">
-      <div class="col-lg-5 col-md-12 footer-about">
-        <a href=" {% static 'index.html' %} " class="logo d-flex align-items-center">
-          <span><img src=" {% static 'assets/img/RV Kitchen logo.png' %} "></span>
-        </a>
-        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-        <div class="social-links d-flex mt-4">
-          <a href=" {% static '' %} "><i class="bi bi-envelope-at-fill"></i></a>
-          <a href=" {% static '' %} "><i class="bi bi-facebook"></i></a>
-          <a href=" {% static '' %} "><i class="bi bi-instagram"></i></a>
-          <a href=" {% static '' %} "><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
-
-      <div class="col-lg-2 col-6 footer-links">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Terms of service</a></li>
-          <li><a href="#">Privacy policy</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-2 col-6 footer-links">
-        <h4>Our Services</h4>
-        <ul>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Web Development</a></li>
-          <li><a href="#">Product Management</a></li>
-          <li><a href="#">Marketing</a></li>
-          <li><a href="#">Graphic Design</a></li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-        <h4>Contact Us</h4>
-        <p>A108 Adam Street</p>
-        <p>New York, NY 535022</p>
-        <p>United States</p>
-        <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-        <p><strong>Email:</strong> <span>info@example.com</span></p>
-      </div>
-
     </div>
-  </div>
-
-  <div class="container copyright text-center mt-4" style="background-color: white;">
-    <p>&copy; <span>Copyright</span> <strong class="px-1">RV's Kitchen</strong> <span>All Rights Reserved</span></p>
-    <div class="credits">
-     
-      Designed and Developed by <a href="https://bootstrapmade.com/">Big Mango</a>
-    </div>
-  </div>
-
-</footer><!-- End Footer -->
-
-<!-- Scroll Top Button -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
-
-<!-- Preloader -->
-<div id="preloader">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
-
-<!-- Vendor JS Files -->
-<script src=" {% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
-<script src=" {% static 'assets/vendor/glightbox/js/glightbox.min.js' %} "></script>
-<script src=" {% static 'assets/vendor/purecounter/purecounter_vanilla.js' %} "></script>
-<script src=" {% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %} "></script>
-<script src=" {% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %} "></script>
-<script src=" {% static 'assets/vendor/swiper/swiper-bundle.min.js' %} "></script>
-<script src=" {% static 'assets/vendor/aos/aos.js' %} "></script>
-<script src=" {% static 'assets/vendor/php-email-form/validate.js' %} "></script>
-
-<!-- Template Main JS File -->
-<script src=" {% static 'assets/js/main.js' %} "></script>
- <!-- Initialize Swiper -->
- <script>
-  var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 2,
-      slideShadows: true,
-    },
-    loop:true,
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-          }
-  });
-</script>
-
-</body>
-<!-- <script>
-
-  var video = document.getElementById("myVideo");
-  function playPause() { 
-if (myVideo.paused) 
-  myVideo.play(); 
-else 
-  myVideo.pause(); 
-} 
-function restartVideo() {
-  var video = document.getElementById("myVideo");
-  video.currentTime = 0;
-  video.play();
-}
-
-
-</script> -->
-</html>
+  </section>
+  <!-- End Service-details Section -->
+</main>
+{% endblock %}

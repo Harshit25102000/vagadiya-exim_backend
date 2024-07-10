@@ -152,7 +152,7 @@
         <div class="card" style="width: 19rem; margin-top: 60px">
           <img
             class="card-img-top"
-            src="assets/img/stats-bg.jpg"
+            src=" {% static 'assets/img/stats-bg.jpg' %} "
             alt="Card image cap"
           />
           <div class="card-body">
@@ -174,7 +174,7 @@
         <div class="card" style="width: 19rem; margin-top: 60px">
           <img
             class="card-img-top"
-            src="assets/img/stats-bg.jpg"
+            src=" {% static 'assets/img/stats-bg.jpg' %} "
             alt="Card image cap"
           />
           <div class="card-body">
@@ -196,7 +196,7 @@
         <div class="card" style="width: 19rem; margin-top: 60px">
           <img
             class="card-img-top"
-            src="assets/img/stats-bg.jpg"
+            src=" {% static 'assets/img/stats-bg.jpg' %} "
             alt="Card image cap"
           />
           <div class="card-body">
@@ -209,7 +209,7 @@
               href="#"
               class="btn btn-primary"
               style="background-color: #630c68ff; border: none"
-              >View Details</img
+              >View Details</a
             >
           </div>
         </div>
@@ -218,7 +218,7 @@
         <div class="card" style="width: 19rem; margin-top: 60px">
           <img
             class="card-img-top"
-            src="assets/img/stats-bg.jpg"
+            src=" {% static 'assets/img/stats-bg.jpg' %} "
             alt="Card image cap"
           />
           <div class="card-body">
@@ -240,4 +240,29 @@
   </div>
 </main>
 
+{% endblock %} {% block scripts %}
+<script>
+  window.onload = function () {
+    // can also use window.addEventListener('load', (event) => {
+    console.log(document.getElementById("item-img"));
+    var productimg = document.getElementById("productimg");
+    var SmallImg = document.getElementsByClassName("rounded-2 small-img");
+    var item = document.getElementsByClassName("border mx-1 rounded-2");
+    item[0].onclick = function () {
+      productimg.src = SmallImg[0].src;
+    };
+    item[1].onclick = function () {
+      productimg.src = SmallImg[1].src;
+    };
+    item[2].onclick = function () {
+      productimg.src = SmallImg[2].src;
+    };
+    item[3].onclick = function () {
+      productimg.src = SmallImg[3].src;
+    };
+    item[4].onclick = function () {
+      productimg.src = SmallImg[4].src;
+    };
+  };
+</script>
 {% endblock %}
