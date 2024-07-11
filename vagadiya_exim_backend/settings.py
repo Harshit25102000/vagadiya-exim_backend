@@ -28,8 +28,8 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["58f1-106-213-87-95.ngrok-free.app", "127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ["https://58f1-106-213-87-95.ngrok-free.app"]
 
 # Application definition
 
@@ -66,6 +66,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "app.context_processors.global_data",
             ],
         },
     },

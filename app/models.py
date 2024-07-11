@@ -145,19 +145,30 @@ class ContactDetails(models.Model):
 
 
 class ContactPageForm(models.Model):
-    name = models.CharField(max_length=100)
-    contact_number = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    message = models.TextField()
-    submit_button_text = models.CharField(max_length=50)
+    name = models.CharField(max_length=100, null=True, blank=True)
+    contact_number = models.CharField(max_length=100, null=True, blank=True)
+    email = models.CharField(max_length=100, null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Contact Page Form"
         verbose_name_plural = "Contact Page Form"
 
 
+class ProductPageDetails(models.Model):
+    title = models.CharField(max_length=100)
+    text = models.TextField()
+    product_button_text = models.CharField(max_length=50, null=True)
+    related_products_text = models.CharField(max_length=100, null=True)
+
+    class Meta:
+        verbose_name = "Product Page Details"
+        verbose_name_plural = "Product Page Details"
+
+
 class ProductCategory(models.Model):
     title = models.CharField(max_length=100)
+    description = models.TextField(null=True)
 
     def __str__(self):
         return self.title

@@ -12,6 +12,7 @@ from .models import (
     ContactPage,
     ContactDetails,
     ContactPageForm,
+    ProductPageDetails,
     ProductCategory,
     Product,
 )
@@ -93,8 +94,14 @@ class ContactDetailsAdmin(admin.ModelAdmin):
 
 @admin.register(ContactPageForm)
 class ContactPageFormAdmin(admin.ModelAdmin):
-    list_display = ("name", "email", "submit_button_text")
+    list_display = ("name", "email")
     search_fields = ("name", "email")
+
+
+@admin.register(ProductPageDetails)
+class ProductPageDetailsAdmin(admin.ModelAdmin):
+    list_display = ("title",)
+    search_fields = ("title",)
 
 
 @admin.register(ProductCategory)

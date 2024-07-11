@@ -43,7 +43,7 @@
  <header id="header" class="header fixed-top d-flex align-items-center" style="background-color: white;">
   <div class="container-fluid d-flex align-items-center justify-content-between">
 
-    <a href=" {% static 'index.html' %} " class="logo d-flex align-items-center me-auto me-xl-0">
+    <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <img src=" {% static 'assets/img/logo.png' %} " alt="">
       
@@ -58,11 +58,9 @@
         
         <li class="dropdown"><a href="/products"><span style="font-weight: bold;">Products</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="#">Tissue Paper</a></li>
-            
-            <li><a href="#">Toilet Paper</a></li>
-            <li><a href="#">Wet Wipes</a></li>
-         
+            {% for category in product_categories %}
+            <li><a href="{% url 'products_by_category' category.id %}">{{category.title}}</a></li>
+            {% endfor %}
           </ul>
         </li>
         <li><a href="/contact"  class="nav-ul" style="font-weight: bold;">Contact</a></li>
@@ -72,7 +70,7 @@
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav><!-- End Nav Menu -->
 
-    <a class="btn-getstarted" href="/contact" style="color:white;background-color:#630C68FF;">Whatsapp</a>
+    <a class="btn-getstarted" href="https://wa.me/{{contact_details.whatsapp}}" style="color:white;background-color:#630C68FF;">Whatsapp</a>
 
   </div>
 </header><!-- End Header -->
@@ -84,19 +82,19 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 d-flex flex-column justify-content-center">
-        <h1 data-aos="fade-up">Premium Hygiene Essentials</h1>
-        <h2 data-aos="fade-up" data-aos-delay="400">"We provide high-quality tissue papers, toilet papers, and wet wipes designed for your comfort and care."</h2>
+        <h1 data-aos="fade-up">{{home_page.top_banner_title}}</h1>
+        <h2 data-aos="fade-up" data-aos-delay="400">{{home_page.top_banner_text}}</h2>
         <div data-aos="fade-up" data-aos-delay="600">
           <div class="text-center text-lg-start">
             <a href=" {% static '#about' %} " class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center" style="background-color:#630C68FF;">
-              <span>Contact Us</span>
+              <span>{{home_page.top_banner_button_text}}</span>
               <i class="bi bi-arrow-right"></i>
             </a>  
           </div>
         </div>
       </div>
-      <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-        <img src=" {% static 'assets/img/hero-img.png' %} " class="img-fluid" alt="">
+      <div class="col-lg-6 " data-aos="zoom-out" data-aos-delay="200">
+        <img src="{{home_page.top_banner_image.url}}" class="img-fluid header-img header-img" alt="">
       </div>
     </div>
   </div>
@@ -114,7 +112,7 @@
     <section id="pricing" class="pricing">
        <!--  Section Title -->
        <div class="container section-title" data-aos="fade-up">
-        <h2 class="">Our Services</h2>
+        <h2 class="">{{home_page.section_one_title}}</h2>
         
       </div><!-- End Section Title -->
 
@@ -122,52 +120,63 @@
 
 
         <div class="row gy-4" data-aos="fade-left">
+          {% for home_page_services_item in home_page_services_items %}
 
+          {% if forloop.counter == 1 %}
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="box" style="background-color: #DD73951A;">
            
             
-              <img src=" {% static 'assets/img/soft.png' %} " class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #F94C8380;">
+              <img src="{{home_page_services_item.service_image.url}}" class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #F94C8380;">
               <ul>
-                <h3>3PLY</h3>
+                <h3>{{home_page_services_item.service_title}}</h3>
                 
             </div>
           </div>
+
+          {% endif %}
+          {% if forloop.counter == 2 %}
 
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="box" style="background-color: #9BEFE01A;">
              
              
               
-              <img src=" {% static 'assets/img/diamond.png' %} " class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #9BEFE080;">
+              <img src="{{home_page_services_item.service_image.url}}" class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #9BEFE080;">
               <ul>
-                <h3>Premium Quality</h3>
+                <h3>{{home_page_services_item.service_title}}</h3>
                
             </div>
           </div>
-
+          {% endif %}
+          {% if forloop.counter == 3 %}
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
             <div class="box" style="background-color: #DD73951A;">
              
               
-              <img src=" {% static 'assets/img/feather.png' %} " class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #F94C8380;">
+              <img src="{{home_page_services_item.service_image.url}}" class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #F94C8380;">
               <ul>
-                <h3>Ultra Soft</h3>
+                <h3>{{home_page_services_item.service_title}}</h3>
                 
             </div>
           </div>
+
+          {% endif %}
+          {% if forloop.counter == 4 %}
 
           <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
             <div class="box" style="background-color: #9BEFE01A;">
              
               
-              <img src=" {% static 'assets/img/earth.png' %} " class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #9BEFE080;">
+              <img src="{{home_page_services_item.service_image.url}}" class="img-fluid" alt="" width="150" height="150" style="border-radius: 80px;background-color: #9BEFE080;">
               <ul>
-                <h3>Global Delivery</h3>
+                <h3>{{home_page_services_item.service_title}}</h3>
                
             </div>
           </div>
 
+          {% endif %}
+          {% endfor %}
         </div>
 
       </div>
@@ -182,62 +191,48 @@
 
       <!--  Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2 class="">What we Provide</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2 class="">{{home_page.section_two_title}}</h2>
+        <p>{{home_page.section_two_text}}</p>
       </div><!-- End Section Title -->
 
       <div class="container">
-
-        <div class="row gy-4 align-items-center features-item">
-          <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-            <h3>Exceptional Service</h3>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-            </p>
-            <a href="#" class="btn btn-get-started">Get Started</a>
-          </div>
-          <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
-            <div class="image-stack">
-              
-              <img src=" {% static 'assets/img/features-light-2.jpg' %} " alt="" class="stack-back feature_image-3" style="border-radius:35px">
-            </div>
-          </div>
-        </div><!-- Features Item -->
-
+        {% for home_page_providings_item in  home_page_providings_items %}
+        {% if forloop.counter|divisibleby:"2" %}
         <div class="row gy-4 align-items-stretch justify-content-between features-item ">
           <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
-            <img src=" {% static 'assets/img/features-light-3.jpg' %} " class="img-fluid feature_image-2" alt="" style="border-radius:35px">
+            <img src="{{home_page_providings_item.providing_image.url}}" class="img-fluid feature_image-2" alt="" style="border-radius:35px">
           </div>
           <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
-            <h3>Gourmet Catering</h3>
-            <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+            <h3>{{home_page_providings_item.providing_title}}</h3>
+            <p>{{home_page_providings_item.providing_text}}</p>
+            {% if home_page_providings_item.providing_points_list.count != 0 %}
             <ul>
-              <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
+              {% for providings_item_point in home_page_providings_item.providing_points_list.all %}
+              <li><i class="bi bi-check"></i> <span>{{providings_item_point.title}}</span></li>
+              {% endfor %}
             </ul>
-            <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
+            {% endif %}
+            <a href="#" class="btn btn-get-started align-self-start">{{home_page_providings_item.providing_button_text}}</a>
           </div>
         </div><!-- Features Item -->
-
+        {% else %}
         <div class="row gy-4 align-items-center features-item">
           <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-            <h3>Exceptional Service</h3>
+            <h3>{{home_page_providings_item.providing_title}}</h3>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+              {{home_page_providings_item.providing_text}}
             </p>
-            <a href="#" class="btn btn-get-started">Get Started</a>
+            <a href="#" class="btn btn-get-started">{{home_page_providings_item.providing_button_text}}</a>
           </div>
           <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
             <div class="image-stack">
               
-              <img src=" {% static 'assets/img/features-light-2.jpg' %} " alt="" class="stack-back feature_image-3" style="border-radius:35px">
+              <img src="{{home_page_providings_item.providing_image.url}}" alt="" class="stack-back feature_image-3" style="border-radius:35px">
             </div>
           </div>
         </div><!-- Features Item -->
-
+        {% endif %}
+        {% endfor %}
       </div>
 
       
@@ -251,9 +246,9 @@
           <div class="col" style="margin-left: 2%;
           margin-bottom: 5%;
           margin-top: 8%;">
-            <h1 style="color:white;font-size:40px;font-weight:700">Elevate Your Hygiene</h1>
-            <p style="color:white;font-size:18px;font-weight: 400;">Step up your cleanliness routine with our premium hygiene products. Experience unparalleled softness and superior performance, enhancing your daily comfort and care.</p>
-            <button class="contact-us-button" style="height:44px;color:#630C68FF;background-color: #F2F7FDFF;border-radius: 5px;">Contact Us</button>
+            <h1 style="color:white;font-size:40px;font-weight:700">{{home_page_bottom_banner.bottom_banner_title}}</h1>
+            <p style="color:white;font-size:18px;font-weight: 400;">{{home_page_bottom_banner.bottom_banner_text}}</p>
+            <button class="contact-us-button" style="height:44px;color:#630C68FF;background-color: #F2F7FDFF;border-radius: 5px;">{{home_page_bottom_banner.bottom_banner_button_text}}</button>
           </div>
           <div class="col" style="margin-left: 2%;
           margin-bottom: 5%;
@@ -261,30 +256,30 @@
             <div class="row">
               <div class="col">
                
-                <p style="font-size: 48px;font-weight: 400;color:#FF8D6BFF">5+</p>
+                <p style="font-size: 48px;font-weight: 400;color:#FF8D6BFF">{{home_page_bottom_banner.bottom_banner_point_one_number}}+</p>
               </div>
               <div class="col first-left">
-                <p style="font-size:24px;font-weight: 400;color:#FFFFFFFF">Years Service Experienced</p>
+                <p style="font-size:24px;font-weight: 400;color:#FFFFFFFF">{{home_page_bottom_banner.bottom_banner_point_one_text}}</p>
      
               </div>
             </div>
             <div class="row">
               <div class="col ">
                
-                <p style="font-size: 48px;font-weight: 400;color:#FF8D6BFF">20+</p>
+                <p style="font-size: 48px;font-weight: 400;color:#FF8D6BFF">{{home_page_bottom_banner.bottom_banner_point_two_number}}+</p>
               </div>
               <div class="col second-left">
-                <p style="font-size:24px;font-weight: 400;color:#FFFFFFFF">Global Markets</p>
+                <p style="font-size:24px;font-weight: 400;color:#FFFFFFFF">{{home_page_bottom_banner.bottom_banner_point_two_text}}</p>
      
               </div>
             </div>
             <div class="row">
               <div class="col">
                
-                <p style="font-size: 48px;font-weight: 400;color:#FF8D6BFF">20K+</p>
+                <p style="font-size: 48px;font-weight: 400;color:#FF8D6BFF">{{home_page_bottom_banner.bottom_banner_point_three_number}}+</p>
               </div>
               <div class="col third-left">
-                <p style="font-size:24px;font-weight: 400;color:#FFFFFFFF">Monthly Orders</p>
+                <p style="font-size:24px;font-weight: 400;color:#FFFFFFFF">{{home_page_bottom_banner.bottom_banner_point_three_text}}</p>
      
               </div>
             </div>
@@ -313,7 +308,7 @@
             <a href=" {% static '' %} "><i class="bi bi-envelope-at-fill"></i></a>
             <a href=" {% static '' %} "><i class="bi bi-facebook"></i></a>
             <a href=" {% static '' %} "><i class="bi bi-instagram"></i></a>
-            <a href=" {% static '' %} "><i class="bi bi-whatsapp"></i></a>
+            <a href="https://wa.me/{{contact_details.whatsapp}}"><i class="bi bi-whatsapp"></i></a>
           </div>
         </div>
 
@@ -361,7 +356,7 @@
   </footer><!-- End Footer -->
 
   <!-- Scroll Top Button -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up"></i></a>
 
   <!-- Preloader -->
   <div id="preloader">

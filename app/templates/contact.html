@@ -10,8 +10,8 @@
           <div class="container" style="margin-top: 10px">
             <div class="row d-flex justify-content-center text-center">
               <div class="col-lg-8">
-                <h1 style="color: #630c68ff">Let's Connect</h1>
-                <p class="mb-0">Welcome to Vagadiya Exim</p>
+                <h1 style="color: #630c68ff">{{contact_page.title}}</h1>
+                <p class="mb-0">{{contact_page.text}}</p>
               </div>
             </div>
           </div>
@@ -22,15 +22,21 @@
       <div class="row gy-5">
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="service-box">
-            <h4 style="color: #630c68ff">Download Catalog</h4>
+            <h4 style="color: #630c68ff">
+              {{contact_page.download_catalog_title}}
+            </h4>
             <div class="download-catalog">
-              <a href="#"
+              <a href="{{contact_page.catalog_pdf_link}}"
                 ><i class="bi bi-filetype-pdf"></i
-                ><span style="color: #630c68ff">Catalog PDF</span></a
+                ><span style="color: #630c68ff"
+                  >{{contact_page.catalog_pdf_title}}</span
+                ></a
               >
-              <a href="#"
+              <a href="{{contact_page.catalog_doc_link}}"
                 ><i class="bi bi-file-earmark-word"></i
-                ><span style="color: #630c68ff">Catalog DOC</span></a
+                ><span style="color: #630c68ff"
+                  >{{contact_page.catalog_doc_title}}</span
+                ></a
               >
             </div>
           </div>
@@ -41,26 +47,26 @@
             style="background-color: #630c68ff"
           >
             <i class="bi bi-headset help-icon"></i>
-            <h4>Have a Question?</h4>
+            <h4>{{contact_details.title}}</h4>
             <p class="d-flex align-items-center mt-2 mb-0">
               <i class="bi bi-telephone me-2"></i>
-              <span>+1 5589 55488 55</span>
+              <span>{{contact_details.phone_number}}</span>
             </p>
 
             <div class="social-links d-flex mt-4">
-              <a href=" {% static '' %} "
+              <a href="mailto:{{contact_details.email}}"
                 ><i
                   class="bi bi-envelope-at-fill"
                   style="margin-right: 13px"
                 ></i
               ></a>
-              <a href=" {% static '' %} "
+              <a href="{{contact_details.facebook}}"
                 ><i class="bi bi-facebook" style="margin-right: 13px"></i
               ></a>
-              <a href=" {% static '' %} "
+              <a href="{{contact_details.instagram}}"
                 ><i class="bi bi-instagram" style="margin-right: 13px"></i
               ></a>
-              <a href=" {% static '' %} "
+              <a href="{{contact_details.whatsapp}}"
                 ><i class="bi bi-whatsapp" style="margin-right: 13px"></i
               ></a>
             </div>
@@ -72,14 +78,16 @@
 
           <div class="container" data-aos="fade-up" data-aos-delay="100">
             <form
-              action="forms/contact.php"
+              action="{% url 'submit_contact_form' %}"
               method="post"
-              class="php-email-form"
+              class="needs-validation"
               data-aos="fade-up"
               data-aos-delay="200"
+              onsubmit="alert("Thank you for your message!")"
             >
+              {% csrf_token %}
               <div class="row gy-4">
-                <div class="col-md-6">
+                <div class="col-md-6 form-group">
                   <label
                     style="
                       font-weight: bold;
@@ -93,13 +101,14 @@
                   <input
                     type="text"
                     name="name"
+                    id="name"
                     class="form-control"
                     required
                     style="border: none; background-color: #f2f2f2"
                   />
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 form-group">
                   <label
                     style="
                       font-weight: bold;
@@ -111,15 +120,16 @@
                     >Contact Number</label
                   >
                   <input
-                    type="email"
+                    type="number"
                     class="form-control"
-                    name="number"
+                    name="contact_number"
+                    id="contact_number"
                     required
                     style="border: none; background-color: #f2f2f2"
                   />
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 form-group">
                   <label
                     style="
                       font-weight: bold;
@@ -131,15 +141,16 @@
                     >Email</label
                   >
                   <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     name="email"
+                    id="email"
                     required
                     style="border: none; background-color: #f2f2f2"
                   />
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12 form-group">
                   <label
                     style="
                       font-weight: bold;
@@ -153,11 +164,13 @@
                   <textarea
                     class="form-control"
                     name="message"
+                    id="message"
                     rows="6"
                     required
                     style="border: none; background-color: #f2f2f2"
                   ></textarea>
                 </div>
+                {% csrf_token %}
 
                 <div class="col-md-12 text-center">
                   <button
