@@ -13,6 +13,10 @@ cd vagadiya_exim_backend
 
 ```bash
 python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux
+. venv/bin/activate
 ```
 
 3. Install requirements
